@@ -600,6 +600,39 @@ img {
     border-radius: 5px;
 }
 
+.card-project {
+    position: relative;
+}
+
+.project-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 24px;
+
+    background-color: rgba(33, 150, 243, 0.9);
+    border-radius: 5px 5px 0px 0px;
+
+    color: var(--primary-white-color);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.56;
+
+    opacity: 0;
+}
+
+.project-text:hover {
+    opacity: 1;
+}
+
 .card-content {
     border-left: 1px solid #EEEEEE;
     border-right: 1px solid #EEEEEE;
@@ -640,13 +673,3 @@ img {
     line-height: 1.87;
 }
 
-.project-text {
-    display: none;
-    margin-top: 0;
-    margin-bottom: 0;
-
-    color: var(--primary-white-color);
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.56;
-}
