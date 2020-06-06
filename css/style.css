@@ -6,6 +6,8 @@
     --primary-white-color: #FFFFFF;
     --secondary-black-color: #000000;
     --bg-color: #F5F4FA;
+    --color-svg: #AFB1B8;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Оформление фона и основного текста */
@@ -51,8 +53,6 @@ img {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-    /* outline: 2px solid #000;
-    background-color: thistle; */
 }
 
 /* Оформление логотипа в шапке */
@@ -93,6 +93,8 @@ img {
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
+
+    transition: color 250ms var(--timing-function);
 
     color: var(--primary-text-color);
     font-weight: 500;
@@ -157,8 +159,10 @@ img {
     display: flex;
     align-items: center;
 
+    transition: color 250ms var(--timing-function);
+
     color: var(--secondary-text-color);
-    fill: var(--secondary-text-color);
+    fill: currentColor;
 
     font-style: normal;
     font-weight: 500;
@@ -171,7 +175,6 @@ img {
 .contacts-link-item:hover,
 .contacts-link-item:focus {
     color: var(--accent-color);
-    fill: var(--accent-color);
 }
 
 /* Оформление героя */
@@ -403,11 +406,18 @@ img {
     width: 44px;    
     padding: 12px;
     border-radius: 50%;
+
+    color: var(--color-svg);
+    fill: currentColor;
+
+    transition: background-color 250ms var(--timing-function),
+    color 250ms var(--timing-function);
 }
+
 .social-links:hover,
 .social-links:focus {
     background-color: var(--accent-color);
-    --color5: var(--primary-white-color);
+    color: var(--primary-white-color);
 }
 .icon-network {
     height: 20px;
@@ -430,6 +440,13 @@ img {
     align-items: center;
     width: 170px;
     height: 90px;
+
+    transition: border 250ms var(--timing-function),
+    color 250ms var(--timing-function);
+
+    color: var(--color-svg);
+    fill: currentColor;
+
     border: 1px solid #AFB1B8;
     border-radius: 4px;
 }
@@ -437,7 +454,7 @@ img {
 .clients-link:hover,
 .clients-link:focus {
     border: 1px solid #2196F3;
-    --color5: var(--accent-color);
+    color: var(--accent-color);
 }
 
 /* Оформление футера */
@@ -515,9 +532,13 @@ img {
     align-items: center;
     height: 44px;
     width: 44px;
+
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
-    --color5: var(--primary-white-color); 
+    color: var(--primary-white-color); 
+    fill: currentColor;
+
+    transition: background-color 250ms var(--timing-function);
 }
 
 .social-links-footer:hover,
@@ -570,6 +591,11 @@ img {
 
     color: var(--primary-text-color);
     background-color: var(--bg-color);
+
+    transition: background-color 250ms var(--timing-function),
+    color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function);
+
     border-style: none;
     font-family: Roboto, sans-serif;
     font-weight: 500;
@@ -600,37 +626,47 @@ img {
     border-radius: 5px;
 }
 
-.card-project {
+.project-thumb {
     position: relative;
+    overflow: hidden;
 }
 
-.project-text {
+.project-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 
+    transform: translateY(100%);
+    opacity: 0;
+
+    transition: transform 250ms var(--timing-function), 
+    opacity 250ms var(--timing-function);
+
     display: flex;
     align-items: center;
+
+    background-color: rgba(33, 150, 243, 0.9);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.projects .item:hover .project-overlay,
+.projects .item:focus .project-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+.project-text {
+    display: block;
 
     margin-top: 0;
     margin-bottom: 0;
     padding: 24px;
 
-    background-color: rgba(33, 150, 243, 0.9);
-    border-radius: 5px 5px 0px 0px;
-
     color: var(--primary-white-color);
     font-weight: 400;
     font-size: 18px;
     line-height: 1.56;
-
-    opacity: 0;
-}
-
-.project-text:hover {
-    opacity: 1;
 }
 
 .card-content {
@@ -645,7 +681,6 @@ img {
 .projects .item:hover,
 .projects .item:focus {
     box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.12);
-
 }
 
 .name-project {
