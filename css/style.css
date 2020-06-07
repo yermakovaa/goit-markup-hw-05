@@ -624,6 +624,8 @@ img {
     background-color: var(--primary-white-color);
     
     border-radius: 5px;
+
+    transition: box-shadow 250ms var(--timing-function);
 }
 
 .project-thumb {
@@ -651,8 +653,8 @@ img {
     border-radius: 5px 5px 0px 0px;
 }
 
-.projects .item:hover .project-overlay,
-.projects .item:focus .project-overlay {
+.project-link:hover .project-overlay,
+.project-link:focus .project-overlay {
     transform: translateY(0);
     opacity: 1;
 }
